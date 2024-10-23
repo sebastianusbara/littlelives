@@ -563,6 +563,11 @@
   resolved "https://registry.npmjs.org/@schedule-x/date-picker/-/date-picker-2.4.1.tgz"
   integrity sha512-N5yPTLg+zZGjj6AQzM8EBb/bS2me0NmcneizZ+YwD1g4294SIyGUsUch0LVmY93fGqDyL6BtFkbEOV9cwaaAJg==
 
+"@schedule-x/event-recurrence@^2.4.1":
+  version "2.4.1"
+  resolved "https://registry.npmjs.org/@schedule-x/event-recurrence/-/event-recurrence-2.4.1.tgz"
+  integrity sha512-376MzorPPmbDm+xe0ZnLadoyKcpJTfZam8PmALhO9o+2kfi9Ih33+QZxIV+w9fXVkSHWAL06Tj+OmwpsvpRZaw==
+
 "@schedule-x/theme-default@^2.4.1":
   version "2.4.1"
   resolved "https://registry.npmjs.org/@schedule-x/theme-default/-/theme-default-2.4.1.tgz"

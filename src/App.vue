@@ -64,7 +64,12 @@
         class="days"
       >
         <div class="flex border-b p-4 pl-0 items-center">
-          <input type="checkbox">
+          <input
+            :checked="day.isAvailable"
+            :value="day.isAvailable"
+            type="checkbox"
+            @change="availableDay = [day.isAvailable]"
+          >
           <div class="pl-4 w-[60px]">
             {{ day.label }}
           </div>
@@ -119,6 +124,7 @@ import {
   createViewMonthGrid,
   createViewWeek,
 } from '@schedule-x/calendar';
+import { createEventRecurrencePlugin } from '@schedule-x/event-recurrence';
 import '@schedule-x/theme-default/dist/index.css';
 import { ScheduleXCalendar } from '@schedule-x/vue';
 
@@ -130,7 +136,18 @@ const calendarApp = createCalendar({
     createViewMonthGrid(),
     createViewMonthAgenda(),
   ],
-  events: [],
+  plugins: [
+    createEventRecurrencePlugin()
+  ],
+  events: [
+  {
+      id: 1,
+      title: 'Available',
+      start: '2024-01-01 07:00',
+      end: '2024-01-01 08:00',
+      rrule: 'FREQ=DAILY;COUNT=365;BYDAY=MO,TU,WE,TH,FR'
+    },
+  ],
 });
 
 const days = [
@@ -294,10 +311,6 @@ const finishTime = [
     top: -10px;
   }
 
-  .sx__week-grid {
-    height: 1000px;
-  }
-
   .sx__calendar {
     border-color: #e5e7eb;
     border-width: 2px;
@@ -305,5 +318,17 @@ const finishTime = [
 
   .days:last-child div {
     border: none;
+  }
+
+  .sx__time-grid-event.sx__event {
+    top: 67px!important;
+    border-left: none!important;
+    background-color: white!important;
+    color: gray!important;
+    padding: 12px;
+  }
+
+  .sx__time-grid-event-time {
+    display: none!important;
   }
 </style>
